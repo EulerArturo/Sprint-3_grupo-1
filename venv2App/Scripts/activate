@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="A:\cursos\Analisis Programacion\SPRINTS\spring3\template_sprint_3_nc\venvApp"
+VIRTUAL_ENV="A:\cursos\Analisis Programacion\SPRINTS\spring3\template_sprin\venv2App"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
@@ -55,9 +55,9 @@ fi
 
 if [ -z "${VIRTUAL_ENV_DISABLE_PROMPT:-}" ] ; then
     _OLD_VIRTUAL_PS1="${PS1:-}"
-    PS1="(venvApp) ${PS1:-}"
+    PS1="(venv2App) ${PS1:-}"
     export PS1
-    VIRTUAL_ENV_PROMPT="(venvApp) "
+    VIRTUAL_ENV_PROMPT="(venv2App) "
     export VIRTUAL_ENV_PROMPT
 fi
 
