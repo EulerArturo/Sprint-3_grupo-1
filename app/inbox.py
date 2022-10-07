@@ -38,15 +38,15 @@ def send():
         db = get_db()
     
         if not to_username:
-            flash('To field is required')
+            flash('El campo "Para" es obligatorio')
             return render_template('inbox/send.html')
         
         if not subject:
-            flash('Subject field is required')
+            flash('El campo "Asunto" es obligatorio')
             return render_template('inbox/send.html')
         
         if not body:
-            flash('Body field is required')
+            flash('Tu mensaje está vacío')
             return render_template('inbox/send.html')    
         
         error = None    
@@ -57,7 +57,7 @@ def send():
         ).fetchone()
         
         if userto is None:
-            error = 'Recipient does not exist'
+            error = 'El destinatario no existe'
     
         if error is not None:
             flash(error)
