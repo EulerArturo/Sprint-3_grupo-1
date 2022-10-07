@@ -107,7 +107,7 @@ def register():
                 'Select user,password from credentials where name=?', (utils.EMAIL_APP,)
             ).fetchone()
 
-            content = f'¡Hola{username}! para activar tu cuenta, por favor has click en el siguiente enlace: ' + flask.url_for('auth.activate', _external=True) + '?auth=' + number
+            content = f'¡Hola {username}! para activar tu cuenta, por favor has click en el siguiente enlace: ' + flask.url_for('auth.activate', _external=True) + '?auth=' + number
             
             send_email(credentials, receiver=email, subject='Activate your account', message=content)
             
@@ -234,7 +234,7 @@ def forgot():
                     'Select user,password from credentials where name=?',(utils.EMAIL_APP,)
                 ).fetchone()
                 
-                content = 'Hola! para cambiar tu contraseña, por favor has click en el siguiente enlace: ' + flask.url_for('auth.change', _external=True) + '?auth=' + number
+                content = f'Hola {username}! para cambiar tu contraseña, por favor has click en el siguiente enlace: ' + flask.url_for('auth.change', _external=True) + '?auth=' + number
                 
                 send_email(credentials, receiver=email, subject='New Password', message=content)
                 

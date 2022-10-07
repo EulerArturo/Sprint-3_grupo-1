@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h2 class="text-slate-700 my-2">{% block title %}Cambiar contraseña{% endblock %}</h2>
+  <h2 class="titulo my-2"><b>{% block title %}Cambiar contraseña{% endblock %}</b></h2>
 {% endblock %}
 
 {% block content %}
@@ -13,5 +13,5 @@
     <input type="hidden" id="authid" name="authid" value={{number}}>
     <input type="submit" value="Submit" class="w-full bg-indigo-500 text-white rounded-md py-2 cursor-pointer">
   </form>
-   
+  
 {% endblock %}

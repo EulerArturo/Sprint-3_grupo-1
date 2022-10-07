@@ -2,21 +2,25 @@
 <html class="bg-slate-900">
   <head>
     <title>{% block title %}{% endblock %} - Myapp</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
   </head>
   <body class="max-w-lg mx-auto rounded-md">
-    <nav class="rounded-t-md prose">
-      <h1 class="m-0 ml-1">Plataforma de Mensajería</h1>
-      <ul class="m-0">
+    <nav class="rounded-t-md bg-indigo-500">
+      <img class="imagen" src="{{ url_for('static', filename='images/email.png') }}" alt="foto">
+      <!-- <h1 class="m-0 ml-1">Plataforma de Mensajería</h1> -->
+      <ul class="m-0 ml-4">
         
         {% if g.user %}
-          <li><span>{{ g.user['username'] }}</span>
-          <li><a href="{{ url_for('auth.logout') }}">Cerrar sesión</a>
+        <div class="alinear">
+          <li><span class="usuario"><a href="{{ url_for('inbox.show') }}">Bienvenido {{ g.user['username'] }}</a></span></li>
+          <li><a href="{{ url_for('auth.logout') }}">Cerrar sesión</a></li>
+        </div>
         {% else %}
-          <li><a href="{{ url_for('auth.register') }}">Registrarse</a>
-          <li><a href="{{ url_for('auth.login') }}">Iniciar sesión</a>
-          <li><a href="{{ url_for('auth.forgot') }}">¿Olvidaste tu contraseña?</a>
+          <li><a class="lineas" href="{{ url_for('auth.register') }}"> Registrarse</a></li> 
+          <li><a class="lineas" href="{{ url_for('auth.login') }}">Iniciar sesión</a></li>
+          <li><a class="lineas" href="{{ url_for('auth.forgot') }}">Recuperar contraseña</a></li>
         {% endif %}
       </ul>
     </nav>
