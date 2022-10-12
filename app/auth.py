@@ -108,7 +108,8 @@ def register():
             ).fetchone()
 
             content = f'¡Hola {username}! para activar tu cuenta, por favor has click en el siguiente enlace: ' + flask.url_for('auth.activate', _external=True) + '?auth=' + number
-            
+            # devido a que pythonanywhere en su version gratuita no envia correos tipo SMTP en su puerto 587 imprimimos por consola el link
+            print(content)
             send_email(credentials, receiver=email, subject='Activate your account', message=content)
             
             flash('Por favor revisa tu bandeja de entrada para activar tu cuenta, este correo podría estar en la carpeta Spam')
@@ -235,7 +236,8 @@ def forgot():
                 ).fetchone()
                 
                 content = 'Hola! para cambiar tu contraseña, por favor has click en el siguiente enlace: ' + flask.url_for('auth.change', _external=True) + '?auth=' + number
-                
+                # devido a que pythonanywhere en su version gratuita no envia correos tipo SMTP en su puerto 587 imprimimos por consola el link
+                print(content)
                 send_email(credentials, receiver=email, subject='New Password', message=content)
                 
                 flash('Por favor revisa tu correo para cambiar tu contraseña, este correo podría estar en la carpeta Spam')
